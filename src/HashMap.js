@@ -10,7 +10,10 @@ class HashMap {
     set(key, value) {
         let node = this._getBucketNode(key);
         while (node.next) {
-            if (node.next.key === key) _removeNextNode(node);
+            if (node.next.key === key) {
+                node.next.value = value;
+                return;
+            }
             node = node.next;
         }
         node.next = new MapNode(key, value);
@@ -36,7 +39,7 @@ class HashMap {
         let node = this._getBucketNode(key);
         while (node.next) {
             if (node.next.key === key) {
-                _removeNextNode(node);
+                this._removeNextNode(node);
                 break;
             }
         }
@@ -51,7 +54,6 @@ class HashMap {
     }
 
     _getBucket(key) {
-        console.log(hashCode(key));
         return hashCode(key) % this._capacity;
     }
 

@@ -24,6 +24,14 @@ class HashMap {
         return undefined;
     }
 
+    has(key) {
+        let node = this.getBucketNode(key);
+        while (node.next) {
+            if (node.next.key === key) return true;
+        }
+        return false;
+    }
+
     delete(key) {
         let node = this.getBucketNode(key);
         while (node.next) {
@@ -39,7 +47,7 @@ class HashMap {
     }
 
     getBucketNode(key) {
-        return this._buckets(this.getBucket(key));
+        return this._buckets[this.getBucket(key)];
     }
 
     getBucket(key) {

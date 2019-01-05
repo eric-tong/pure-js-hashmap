@@ -1,0 +1,23 @@
+{
+  "name": "pure-js-hashmap",
+  "version": "1.0.0",
+  "description": "HashMap implemented with Javascript arrays and linked lists",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/eric-tong/pure-js-hashmap.git"
+  },
+  "keywords": [
+    "Javascript",
+    "hashmap"
+  ],
+  "author": "Eric Tong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eric-tong/pure-js-hashmap/issues"
+  },
+  "homepage": "https://github.com/eric-tong/pure-js-hashmap#readme"
+}

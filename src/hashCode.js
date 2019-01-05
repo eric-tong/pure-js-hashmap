@@ -1,4 +1,4 @@
-export default function hashCode(key) {
+function hashCode(key) {
     let hash = 0;
     for (let i = 0; i < key.length; i++) {
         const character = key.charCodeAt(i);
@@ -7,3 +7,5 @@ export default function hashCode(key) {
     }
     return hash;
 }
+
+module.exports = hashCode;

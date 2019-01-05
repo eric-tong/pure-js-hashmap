@@ -1,7 +1,7 @@
-import MapNode from './MapNode';
-import hashCode from './hashCode';
+const MapNode = require('./MapNode');
+const hashCode = require('./hashCode');
 
-export default class HashMap {
+class HashMap {
     constructor() {
         this._capacity = 2 ** 4;
         this._buckets = Array.from({ length: this._capacity }, (v, k) => new MapNode());
@@ -50,3 +50,5 @@ export default class HashMap {
         node.next = node.next.next;
     }
 }
+
+module.exports = HashMap;

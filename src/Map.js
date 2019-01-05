@@ -8,16 +8,16 @@ class HashMap {
     }
 
     set(key, value) {
-        let node = this.getBucketNode(key);
+        let node = this._getBucketNode(key);
         while (node.next) {
-            if (node.next.key === key) removeNextNode(node);
+            if (node.next.key === key) _removeNextNode(node);
             node = node.next;
         }
         node.next = new MapNode(key, value);
     }
 
     get(key) {
-        let node = this.getBucketNode(key);
+        let node = this._getBucketNode(key);
         while (node.next) {
             if (node.next.key === key) return node.next.value;
         }
@@ -25,7 +25,7 @@ class HashMap {
     }
 
     has(key) {
-        let node = this.getBucketNode(key);
+        let node = this._getBucketNode(key);
         while (node.next) {
             if (node.next.key === key) return true;
         }
@@ -33,10 +33,10 @@ class HashMap {
     }
 
     delete(key) {
-        let node = this.getBucketNode(key);
+        let node = this._getBucketNode(key);
         while (node.next) {
             if (node.next.key === key) {
-                removeNextNode(node);
+                _removeNextNode(node);
                 break;
             }
         }
@@ -46,15 +46,15 @@ class HashMap {
         this._buckets.forEach((_, index, array) => array[index].next = null);
     }
 
-    getBucketNode(key) {
-        return this._buckets[this.getBucket(key)];
+    _getBucketNode(key) {
+        return this._buckets[this._getBucket(key)];
     }
 
-    getBucket(key) {
+    _getBucket(key) {
         return hashCode(key) % this._capacity;
     }
 
-    removeNextNode(node) {
+    _removeNextNode(node) {
         node.next = node.next.next;
     }
 }

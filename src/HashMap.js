@@ -51,6 +51,7 @@ class HashMap {
     }
 
     _getBucket(key) {
+        console.log(hashCode(key));
         return hashCode(key) % this._capacity;
     }
 
